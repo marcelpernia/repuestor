@@ -5,7 +5,7 @@ export default function Slider() {
       alt="Slider" 
       width={1920} 
       height={1080} 
-      className='min-h-[200px] w-full object-cover'
+      className='min-h-[150px] w-full object-cover'
     />
   )
 }
