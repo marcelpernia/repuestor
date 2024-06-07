@@ -1,10 +1,11 @@
 'use client'
 
 import { CldImage } from 'next-cloudinary';
+import Link from 'next/link';
 
 export const ProductCard = ( product ) => {
   return (
-    <div className="p-4 rounded shadow space-y-4 text-center">
+    <Link href={`/p/${product.slug}`} className="p-2 md:p-4 rounded-md border border-gray-100 space-y-4">
       {product?.gallery?.data && (
         <CldImage
           width="200"
@@ -19,8 +20,8 @@ export const ProductCard = ( product ) => {
           format="webp"
         />
       )}
-      <h2>{product?.title}</h2>
-      {product?.price && (<p>${product.price}</p>)}
-    </div>
+      <h2 className='md:text-base text-sm'>{product?.title}</h2>
+      <p>{product?.price && (<p>${product.price}</p>)}</p>
+    </Link>
   )
 }

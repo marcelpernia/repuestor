@@ -14,9 +14,9 @@ export default async function Home() {
   return (
     <>
       <Slider />
-      <div className="py-10 container mx-auto">
-        Cantidad de productos: {products.length}
-        <div className="grid grid-cols-5 gap-5">
+      <div className="py-10 px-4 container mx-auto">
+        {/* Cantidad de productos: {products.length} */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {products.map((product) => (
             <ProductCard 
               key={product.id} 
