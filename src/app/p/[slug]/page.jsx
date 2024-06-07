@@ -26,7 +26,7 @@ export default async function Page({ params }) {
           <p className="text-slate-700">{p.Description}</p>
         </div>
         
-        <div className="flex md:flex-row flex-col gap-2 md:gap-4 pt-10">
+        <div className="flex md:flex-row flex-col gap-2 md:gap-4 md:pt-10 pt-6">
           <select className="bg-white border border-gray-300 rounded-md py-2 px-2 h-12 flex-none">
             <option value="1">1 unidad</option>
             <option value="2">2 unidades</option>
