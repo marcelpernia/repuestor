@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
 
       <Header />
-      <main className="py-0">  
+      <main className="md:pt-0 pt-[var(--header-height)]">  
         {children}
       </main> 
         
