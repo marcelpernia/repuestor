@@ -16,10 +16,10 @@ export default function Header() {
         </svg>
       </div>
       <div className="space-x-8">
-        <a href='' className="font-semibold text-brand-600 hover:underline">
+        <a href='' className="font-semibold text-brand-700 hover:underline">
           Ingresar
         </a>
-        <button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-2 px-4 rounded-full">
+        <button className="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-2 px-4 rounded">
           Registrarme
         </button>
       </div>
