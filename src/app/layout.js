@@ -1,4 +1,8 @@
 import { Inter } from "next/font/google";
+import {
+  ClerkProvider
+} from '@clerk/nextjs'
+import { esES } from '@clerk/localizations'
 import "./globals.css";
 import Header from "./components/Header";
 
@@ -11,15 +15,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <ClerkProvider localization={esES}>
+      <html lang="en">
+        <body className={inter.className}>
 
-      <Header />
-      <main className="md:pt-0 pt-[var(--header-height)]">  
-        {children}
-      </main> 
-        
-      </body>
-    </html>
+        <Header />
+        <main className="md:pt-0 pt-[var(--header-height)]">  
+          {children}
+        </main> 
+          
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

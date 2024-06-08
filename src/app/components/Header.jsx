@@ -1,4 +1,11 @@
 import Link from "next/link";
+import {
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 export default function Header() {
   return (
@@ -19,18 +26,36 @@ export default function Header() {
           </svg>
         </Link>
       </div>
-      <div className="space-x-8 hidden md:block">
-        <a href='' className="font-semibold text-brand-700 hover:underline">
-          Ingresar
-        </a>
-        <button className="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-2 px-4 rounded">
-          Registrarme
-        </button>
-      </div>
-      <div className="md:hidden block">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-8 text-brand-700">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
+      <div className="flex gap-4 items-center">
+        <div className="space-x-8 hidden md:block">
+          <SignedOut>
+            <SignInButton>
+              <button className="font-semibold text-brand-700 hover:underline">
+                Ingresar
+              </button>
+            </SignInButton>
+            <SignUpButton>
+              <button className="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-2 px-4 rounded">
+                Registrarme
+              </button>
+            </SignUpButton>
+          </SignedOut>
+        </div>
+      
+        <SignedIn>
+          <UserButton 
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "md:w-10 md:h-10",
+              }
+            }}
+          />
+        </SignedIn>
+        <div className="md:hidden block">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-8 text-brand-700">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </div>
       </div>
     </header>
   );
