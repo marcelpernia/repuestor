@@ -12,7 +12,7 @@ export const ProductCard = ( product ) => {
           height="200"
           src={product.gallery?.data[0]?.attributes?.url}
           alt={product.title}
-          className="aspect-square object-contain"
+          className="aspect-square object-contain mx-auto"
           crop="pad"
           gravity="center"
           background="white"
@@ -21,7 +21,7 @@ export const ProductCard = ( product ) => {
         />
       )}
       <h2 className='md:text-base text-sm'>{product?.title}</h2>
-      <p>{product?.price && (<p>${product.price}</p>)}</p>
+      {product?.price && (<p>${product.price}</p>)}
     </Link>
   )
 }
