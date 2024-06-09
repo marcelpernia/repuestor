@@ -8,8 +8,8 @@ export const ProductCard = ( product ) => {
     <Link href={`/p/${product.slug}`} className="p-2 md:p-4 rounded-md border border-gray-100 space-y-4">
       {product?.gallery?.data && (
         <CldImage
-          width="200"
-          height="200"
+          width={200}
+          height={200}
           src={product.gallery?.data[0]?.attributes?.url}
           alt={product.title}
           className="aspect-square object-contain mx-auto"

@@ -6,11 +6,11 @@ export const Img = ({ src, title }) => {
   return (
     <>
       <CldImage
-        width="600"
-        height="600"
+        width={600}
+        height={600}
         src={src}
         alt={title}
-        className="aspect-square object-contain"
+        className="aspect-square object-contain w-full"
         crop="pad"
         gravity="center"
         background="white"
