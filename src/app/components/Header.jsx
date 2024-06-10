@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button"
 import {
   SignInButton,
   SignUpButton,
@@ -27,17 +28,17 @@ export default function Header() {
         </Link>
       </div>
       <div className="flex gap-4 items-center">
-        <div className="space-x-8 hidden md:block">
+        <div className="space-x-4 hidden md:block">
           <SignedOut>
             <SignInButton>
-              <button className="font-semibold text-brand-700 hover:underline">
+              <Button variant='link'>
                 Ingresar
-              </button>
+              </Button>
             </SignInButton>
             <SignUpButton>
-              <button className="bg-brand-700 hover:bg-brand-800 text-white font-semibold py-2 px-4 rounded">
+              <Button>
                 Registrarme
-              </button>
+              </Button>
             </SignUpButton>
           </SignedOut>
         </div>

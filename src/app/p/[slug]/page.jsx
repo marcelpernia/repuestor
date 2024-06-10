@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getProductBySlug } from "@/app/services/getProductBySlug";
 import { Img } from "./Img";
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export default async function Page({ params }) {
 
@@ -50,7 +51,7 @@ export default async function Page({ params }) {
             <option value="4">4 unidades</option>
             <option value="5">5 unidades</option>
           </select>
-          <button className="bg-brand-700 hover:bg-brand-800 text-white py-2 px-4 h-12 rounded-md w-full font-semibold">Comprar ahora</button>
+          <Button className='w-full' size='lg'>Comprar ahora</Button>
         </div>
       </div>
     </div>
