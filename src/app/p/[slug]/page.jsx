@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import { getProductBySlug } from "@/app/services/getProductBySlug";
 import { Img } from "./Img";
 
@@ -6,7 +7,11 @@ export default async function Page({ params }) {
   const { slug } = params;
   
   const { data } = await getProductBySlug({ slug });
-  const {attributes: p} = data[0]
+  const {attributes: p} = data[0] || {};
+
+  if (!p) {
+    redirect('/');
+  }
 
   return (
     <div className="py-10 px-4">
