@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 
 export default async function Page({ params }) {
 
+  const STOCK = 30;
+
   const { slug } = params;
   
   const { data } = await getProductBySlug({ slug });
@@ -44,12 +46,12 @@ export default async function Page({ params }) {
         </div>
         
         <div className="flex md:flex-row flex-col gap-2 md:gap-4 md:pt-10 pt-6">
-          <select className="bg-white border border-gray-300 rounded-md py-2 px-2 h-12 flex-none">
-            <option value="1">1 unidad</option>
-            <option value="2">2 unidades</option>
-            <option value="3">3 unidades</option>
-            <option value="4">4 unidades</option>
-            <option value="5">5 unidades</option>
+          <select className="bg-white border border-gray-300 rounded-md py-2 px-2 h-12 flex-none active:text-red-100">
+            {
+              [...Array(STOCK)].map((_, i) => (
+                <option key={i} value={i + 1}>{i + 1} {i === 0 ? 'unidad' : 'unidades'}</option>
+              ))
+            }
           </select>
           <Button className='w-full' size='lg'>Comprar ahora</Button>
         </div>
