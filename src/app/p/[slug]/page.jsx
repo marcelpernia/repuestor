@@ -19,7 +19,7 @@ export default async function Page({ params }) {
 
   return (
     <div className="py-10 px-4">
-      <div className="container mx-auto max-w-[600px]">
+      <div className="mx-auto max-w-[600px]">
         <div className="space-y-4">
           {p?.gallery?.data ? (
             <Img 

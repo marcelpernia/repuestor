@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ProductCard } from './components/ProductCard';
 import Slider from './components/Slider';
 import { getProducts } from './services/getProducts';
+import { Button } from '@/components/ui/button';
 
 
 export default async function Home({searchParams}) {
@@ -28,17 +29,19 @@ export default async function Home({searchParams}) {
           </div>
           {products.length < total && (
             <div>
-              <Link
-                scroll={false}
-                href={{
-                  pathname: '/',
-                  query: {
-                    page: Number(page) + 1,
-                  },
-                }}
-              className="bg-brand-700 hover:bg-brand-800 text-white font-bold py-2 px-4 rounded">
-                Mostrar más
-              </Link>
+              <Button asChild>
+                <Link
+                  scroll={false}
+                  href={{
+                    pathname: '/',
+                    query: {
+                      page: Number(page) + 1,
+                    },
+                  }}
+                >
+                  Mostrar más
+                </Link>
+              </Button>
             </div>
           )}
         </div>
