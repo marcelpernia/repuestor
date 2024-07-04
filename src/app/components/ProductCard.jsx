@@ -31,7 +31,7 @@ export const ProductCard = ( product ) => {
       )}
       <div className='space-y-1'>
         <h2 className='md:text-base text-sm'>{product?.title}</h2>
-        {product?.price && (<p className='font-semibold'>${product.price}</p>)}
+        <p className='font-semibold'>${product.price ?? 0}</p>
       </div>
     </Link>
   )

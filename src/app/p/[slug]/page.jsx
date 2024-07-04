@@ -41,7 +41,7 @@ export default async function Page({ params }) {
             </div>
             <h1 className="text-2xl font-semibold">{p.title}</h1>
           </div>
-          {p.price && (<p className="text-xl font-semibold">${p.price}</p>)}
+          <p className="text-xl font-semibold">${p.price ?? 0}</p>
           <p className="text-slate-700">{p.Description}</p>
         </div>
         
