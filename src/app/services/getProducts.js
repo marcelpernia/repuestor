@@ -9,7 +9,11 @@ export const getProducts = async ({ page }) => {
     encodeValuesOnly: true, // prettify URL
   });
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?${query}&populate=*`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?${query}&populate=*`, {
+    next: {
+      revalidate: 3600,
+    }
+  })
   const data = await response.json()
   return data
 }

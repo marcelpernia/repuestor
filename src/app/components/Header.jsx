@@ -7,7 +7,8 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
-import { Menu, ShoppingCart, CircleUserRound, UserRound } from 'lucide-react';
+import { Menu, CircleUserRound, UserRound } from 'lucide-react';
+import Cart from "./Cart";
 
 export default function Header() {
   return (
@@ -54,7 +55,7 @@ export default function Header() {
             />
           </SignedIn>
 
-          <ShoppingCart className="text-brand-700"/>
+          <Cart />
         </div>
   
       </header>
@@ -97,7 +98,7 @@ export default function Header() {
             </SignInButton>
           </SignedOut>
 
-          <ShoppingCart className="text-brand-700"/>
+          <Cart />
         </div>
       </header>
     </>
