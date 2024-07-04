@@ -32,12 +32,12 @@ export default function Header() {
             </svg>
           </Link>
 
-          <div className="px-5 w-full">
-            <div className="relative max-w-[700px]">
+          <div className="w-full pl-5 pr-2">
+            <div className="relative">
               <Input 
                 type="search" 
-                placeholder="Buscar productos..." 
-                className="w-full h-[40px] rounded-full"
+                placeholder="Buscar repuestos..." 
+                className="w-full h-[40px] rounded-full bg-gray-50"
               />
               <Search 
                 className="absolute top-1/2 right-2 transform -translate-y-1/2 text-gray-400 hover:text-gray-500 cursor-pointer"
