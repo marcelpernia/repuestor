@@ -3,7 +3,6 @@ import { ProductCard } from './components/ProductCard';
 import Slider from './components/Slider';
 import { getProducts } from './services/getProducts';
 import { Button } from '@/components/ui/button';
-import SearchBar from './components/SearchBar';
 
 export default async function Home({searchParams}) {
   const page = searchParams.page || 1;
@@ -13,7 +12,6 @@ export default async function Home({searchParams}) {
   return (
     <>
       <Slider />
-      <SearchBar items={products}/>
       <div className="py-10 px-4 container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {products.map((product) => (
