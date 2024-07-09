@@ -11,8 +11,11 @@ import {
 import { Menu, CircleUserRound, UserRound } from 'lucide-react';
 import Cart from "./Cart";
 import { Search } from "lucide-react";
+import SearchBar from "./SearchBar";
+import { getAllProductsForSearch } from "../services/getProducts";
 
-export default function Header() {
+export default async function Header() {
+  const {data:products} = await getAllProductsForSearch();
   return (
     <>
       <header className="hidden md:flex justify-between items-center bg-white shadow-sm px-5 h-[var(--header-height)] relative">
@@ -33,16 +36,7 @@ export default function Header() {
           </Link>
 
           <div className="w-full pl-5 pr-2">
-            <div className="relative">
-              <Input 
-                type="search" 
-                placeholder="Buscar repuestos..." 
-                className="w-full h-[40px] rounded-full bg-gray-50"
-              />
-              <Search 
-                className="absolute top-1/2 right-2 transform -translate-y-1/2 text-gray-400 hover:text-gray-500 cursor-pointer"
-              />
-            </div>
+            <SearchBar items={products}/>
           </div>
         </div>
         <div className="flex gap-4 items-center flex-none">
