@@ -17,7 +17,7 @@ export default async function Home({searchParams}) {
           {products.map((product) => (
             <ProductCard 
               key={product.id} 
-              {...product.attributes} 
+              product={product} 
             />
           ))}
         </div>
