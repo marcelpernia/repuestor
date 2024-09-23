@@ -6,6 +6,7 @@ import {
 import { esES } from '@clerk/localizations'
 import "./globals.css";
 import Header from "./components/Header";
+import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="md:pt-0 pt-[var(--header-height)]">  
           {children}
+          <Analytics />
         </main> 
           
         </body>
