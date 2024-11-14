@@ -1,9 +1,9 @@
-import { SignIn } from "@clerk/nextjs";
+import { SignIn } from '@clerk/nextjs'
 
-export default function Page() {
+export default function Page () {
   return (
-    <div className="flex justify-center md:pt-20 pt-10">
+    <div className='flex justify-center md:pt-20 pt-10'>
       <SignIn />
     </div>
-  );
+  )
 }

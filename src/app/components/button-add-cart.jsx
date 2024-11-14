@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button';
-import CartPlus from './cart-plus';
-import { useProductStore } from '@/lib/store';
-import { toast } from "sonner"
+import { Button } from '@/components/ui/button'
+import CartPlus from './cart-plus'
+import { useProductStore } from '@/lib/store'
+import { toast } from 'sonner'
 // import { useRouter } from 'next/navigation'
 
 const ButtonAddCart = ({ product }) => {
@@ -10,7 +10,7 @@ const ButtonAddCart = ({ product }) => {
   const incrementProductQty = useProductStore(state => state.incrementProductQty)
 
   const { gallery, slug, ...rest } = product
-  
+
   const handleAddCart = () => {
     const prod = {
       ...rest,
@@ -20,7 +20,7 @@ const ButtonAddCart = ({ product }) => {
       price: product.price ?? 0
     }
 
-    if(isProductInCart(product.id)) {
+    if (isProductInCart(product.id)) {
       incrementProductQty(product.id)
     } else {
       addProduct(prod)
@@ -30,7 +30,7 @@ const ButtonAddCart = ({ product }) => {
 
   return (
     <Button size='icon' onClick={handleAddCart}><CartPlus className='w-6 text-white' /></Button>
-  );
+  )
 }
 
-export default ButtonAddCart;
+export default ButtonAddCart

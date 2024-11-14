@@ -5,19 +5,19 @@ export const getProducts = async ({ page }) => {
     fields: ['title', 'price', 'slug', 'stock'],
     populate: {
       gallery: {
-        fields: ['url'],
-      },
+        fields: ['url']
+      }
     },
     pagination: {
-      pageSize: 24 * page,
-    },
+      pageSize: 24 * page
+    }
   }, {
-    encodeValuesOnly: true, // prettify URL
-  });
+    encodeValuesOnly: true // prettify URL
+  })
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?${query}`, {
     next: {
-      revalidate: 3600,
+      revalidate: 3600
     }
   })
   const data = await response.json()
@@ -29,19 +29,19 @@ export const getAllProductsForSearch = async () => {
     fields: ['title', 'slug'],
     populate: {
       gallery: {
-        fields: ['url'],
-      },
+        fields: ['url']
+      }
     },
     pagination: {
-      pageSize: 100,
-    },
+      pageSize: 100
+    }
   }, {
-    encodeValuesOnly: true,
-  });
+    encodeValuesOnly: true
+  })
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?${query}`, {
     next: {
-      revalidate: 3600,
+      revalidate: 3600
     }
   })
   const data = await response.json()
