@@ -1,15 +1,13 @@
 import { Button } from '@/components/ui/button';
 import CartPlus from './cart-plus';
 import { useProductStore } from '@/lib/store';
-import { useRouter } from 'next/navigation'
+import { toast } from "sonner"
+// import { useRouter } from 'next/navigation'
 
 const ButtonAddCart = ({ product }) => {
   const addProduct = useProductStore(state => state.addProduct)
   const isProductInCart = useProductStore(state => state.isProductInCart)
   const incrementProductQty = useProductStore(state => state.incrementProductQty)
-  const updateCart = useProductStore(state => state.updateCart)
-
-  const router = useRouter()
 
   const { gallery, slug, ...rest } = product
   
@@ -27,9 +25,7 @@ const ButtonAddCart = ({ product }) => {
     } else {
       addProduct(prod)
     }
-
-    updateCart(true)
-    // router.refresh()
+    toast.success(`${product.title} se ha agregado al carrito.`)
   }
 
   return (

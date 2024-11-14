@@ -6,6 +6,7 @@ import {
 import { esES } from '@clerk/localizations'
 import "./globals.css";
 import Header from "./components/Header";
+import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
           {children}
           <Analytics />
         </main> 
-          
+        <Toaster richColors closeButton position="top-right"/>
         </body>
       </html>
     </ClerkProvider>

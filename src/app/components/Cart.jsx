@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from  'react'
+import { useState } from  'react'
 import { useShallow } from 'zustand/react/shallow'
 import {
   Sheet,
@@ -13,11 +13,10 @@ import { ShoppingCart, PackageOpen, Trash2 } from "lucide-react"
 import { useProductStore } from "@/lib/store";
 
 export default function Cart () {
-	const cart = useProductStore(state => state.cart)
+	const [open, setOpen] = useState(false);
 	const products = useProductStore(useShallow(state => state.products))
 	const removeProduct = useProductStore(state => state.removeProduct)
 	const updateProductQty = useProductStore(state => state.updateProductQty)
-	const updateCart = useProductStore(state => state.updateCart)
 
 	const handleRemove = id => {
 		removeProduct(id)
@@ -28,12 +27,12 @@ export default function Cart () {
 		updateProductQty(id, value)
 	}
 
-	const handleClose = () => {
-		updateCart(false)
+	const handleOpen = (open) => {
+		setOpen(open)
 	}
 
  return (
-		<Sheet open={cart} onOpenChange={handleClose}>
+		<Sheet open={open} onOpenChange={handleOpen}>
 			<SheetTrigger>
 				<ShoppingCart className="text-brand-700" />
 			</SheetTrigger>
