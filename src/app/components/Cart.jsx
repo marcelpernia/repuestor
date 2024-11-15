@@ -36,7 +36,7 @@ export default function Cart () {
       <SheetTrigger>
         <ShoppingCart className='text-brand-700' />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent onOpenAutoFocus={(e) => e.preventDefault()}>
         <SheetHeader>
           <SheetTitle>Carrito de compras</SheetTitle>
 
