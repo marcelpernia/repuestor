@@ -66,7 +66,7 @@ export default function Cart () {
                     <img
                       src={product.image}
                       alt={product.title}
-                      className='w-16 h-16 object-cover rounded flex-none'
+                      className='w-16 h-16 object-contain rounded flex-none'
                     />
                     <div className='space-y-2 w-full'>
                       <h3 className='text-balance font-bold'>

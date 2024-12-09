@@ -36,6 +36,15 @@ export const useProductStore = create(
           )
         })),
 
+      incrementByProductQty: (id, add) =>
+        set((state) => ({
+          products: state.products.map((product) =>
+            product.id === id && (product.quantity + add) < product.stock
+              ? { ...product, quantity: product.quantity + add }
+              : { ...product, quantity: product.stock }
+          )
+        })),
+
       isProductInCart: (id) => {
         const { products } = get()
         return products.some((product) => product.id === id)

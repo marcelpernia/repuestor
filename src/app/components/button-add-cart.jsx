@@ -1,7 +1,8 @@
+'use client'
 import { Button } from '@/components/ui/button'
-import CartPlus from './cart-plus'
 import { useProductStore } from '@/lib/store'
 import { toast } from 'sonner'
+import { ShoppingCart } from 'lucide-react'
 // import { useRouter } from 'next/navigation'
 
 const ButtonAddCart = ({ product }) => {
@@ -11,7 +12,7 @@ const ButtonAddCart = ({ product }) => {
 
   const { gallery, slug, ...rest } = product
 
-  const handleAddCart = () => {
+  const handleAddToCart = () => {
     const prod = {
       ...rest,
       image: product.gallery?.data ? product.gallery?.data[0]?.attributes?.url : '/placeholder.png',
@@ -29,7 +30,10 @@ const ButtonAddCart = ({ product }) => {
   }
 
   return (
-    <Button size='icon' onClick={handleAddCart}><CartPlus className='w-6 text-white' /></Button>
+    <Button className='w-full gap-1' onClick={handleAddToCart}>
+      <ShoppingCart size='18' />
+      Agregar al carrito
+    </Button>
   )
 }
 
