@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { useProductStore } from '@/lib/store'
 import { toast } from 'sonner'
 import { ShoppingCart } from 'lucide-react'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const ButtonAddCart = ({ product }) => {
   const addProduct = useProductStore(state => state.addProduct)
@@ -11,6 +11,8 @@ const ButtonAddCart = ({ product }) => {
   const incrementProductQty = useProductStore(state => state.incrementProductQty)
 
   const { gallery, slug, ...rest } = product
+
+  const router = useRouter()
 
   const handleAddToCart = () => {
     const prod = {
@@ -26,7 +28,15 @@ const ButtonAddCart = ({ product }) => {
     } else {
       addProduct(prod)
     }
-    toast.success(`${product.title} se ha agregado al carrito.`)
+    toast(`${product.title} se ha agregado al carrito.`,
+      {
+        duration: 7000,
+        action: {
+          label: 'Ver carrito',
+          onClick: () => router.push('/cart')
+        }
+      }
+    )
   }
 
   return (
