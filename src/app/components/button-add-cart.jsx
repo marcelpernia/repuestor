@@ -4,6 +4,7 @@ import { useProductStore } from '@/lib/store'
 import { toast } from 'sonner'
 import { ShoppingCart } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { STOCK } from '@/lib/constants'
 
 const ButtonAddCart = ({ product }) => {
   const addProduct = useProductStore(state => state.addProduct)
@@ -19,7 +20,7 @@ const ButtonAddCart = ({ product }) => {
       ...rest,
       image: product.gallery?.data ? product.gallery?.data[0]?.attributes?.url : '/placeholder.png',
       quantity: 1,
-      stock: 10,
+      stock: STOCK,
       price: product.price ?? 0
     }
 

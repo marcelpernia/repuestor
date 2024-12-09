@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
+import { STOCK } from '@/lib/constants'
 
 export const AddToCart = ({ product }) => {
   const addProduct = useProductStore(state => state.addProduct)
@@ -14,7 +15,6 @@ export const AddToCart = ({ product }) => {
 
   const [qtyError, setQtyError] = useState('')
   const [quantity, setQuantity] = useState(1)
-  const STOCK = 30
 
   const router = useRouter()
 
