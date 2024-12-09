@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { getProductBySlug } from '@/app/services/getProductBySlug'
 import { Img } from './Img'
 import Image from 'next/image'
-import { AddToCart } from './AddToCart'
+import { AddToCart } from './add-to-cart'
 export default async function Page ({ params }) {
   const { slug } = params
 

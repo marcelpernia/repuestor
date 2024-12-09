@@ -28,9 +28,10 @@ const ButtonAddCart = ({ product }) => {
     } else {
       addProduct(prod)
     }
-    toast(`${product.title} se ha agregado al carrito.`,
+
+    toast(`Se agregó al carrito: ${product.title}.`,
       {
-        duration: 7000,
+        duration: 10000,
         action: {
           label: 'Ver carrito',
           onClick: () => router.push('/cart')
