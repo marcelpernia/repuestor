@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CldImage } from 'next-cloudinary'
-import ButtonAddCart from './button-add-cart'
+import { AddToCart } from './add-to-cart'
 
 export const ProductCard = ({ product: { id, attributes: product } }) => {
   return (
@@ -38,7 +38,7 @@ export const ProductCard = ({ product: { id, attributes: product } }) => {
         <p className='font-semibold'>${product.price ?? 0}</p>
       </div>
       <div>
-        <ButtonAddCart product={{ id, ...product }} />
+        <AddToCart product={{ id, ...product }} />
       </div>
     </div>
   )

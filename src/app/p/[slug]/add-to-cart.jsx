@@ -72,7 +72,7 @@ export const AddToCart = ({ product }) => {
       <div className='flex md:flex-row flex-col gap-2 md:gap-4 md:pt-10 pt-6'>
         <div className='md:flex-none'>
           <div className='flex'>
-            <Button disabled={quantity <= 1} onClick={handleDecrement} variant='outline' size='icon' className='flex-none rounded-r-none border-r-0'><Minus className='text-brand-700' /></Button>
+            <Button disabled={quantity <= 1} onClick={handleDecrement} variant='outline' size='lgIcon' className='flex-none rounded-r-none border-r-0'><Minus className='text-brand-700' /></Button>
             <Input
               value={quantity}
               onChange={handleInputChange}
@@ -81,7 +81,7 @@ export const AddToCart = ({ product }) => {
               max={STOCK}
               className='h-12 md:w-20 text-lg text-center rounded-none border-brand-200 appearance-none z-10'
             />
-            <Button disabled={quantity === STOCK} onClick={handleIncrement} variant='outline' size='icon' className='flex-none rounded-l-none border-l-0'><Plus className='text-brand-700' /></Button>
+            <Button disabled={quantity === STOCK} onClick={handleIncrement} variant='outline' size='lgIcon' className='flex-none rounded-l-none border-l-0'><Plus className='text-brand-700' /></Button>
           </div>
           {qtyError && <div className='text-red-600 text-xs pt-1 font-semibold'>{qtyError}</div>}
         </div>

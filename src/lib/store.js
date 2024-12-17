@@ -36,6 +36,13 @@ export const useProductStore = create(
           )
         })),
 
+      decrementProductQty: (id) =>
+        set((state) => ({
+          products: state.products.map((product) =>
+            product.id === id && { ...product, quantity: product.quantity - 1 }
+          )
+        })),
+
       incrementByProductQty: (id, add) =>
         set((state) => ({
           products: state.products.map((product) =>
@@ -48,6 +55,11 @@ export const useProductStore = create(
       isProductInCart: (id) => {
         const { products } = get()
         return products.some((product) => product.id === id)
+      },
+
+      findProduct: (id) => {
+        const { products } = get()
+        return products.find((product) => product.id === id)
       },
 
       updateCart: (status) =>
