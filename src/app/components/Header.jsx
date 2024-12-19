@@ -67,7 +67,7 @@ export default async function Header () {
 
       </header>
 
-      <header className='bg-white shadow-sm px-4 h-[var(--header-height)] grid grid-cols-3 items-center md:hidden fixed t-0 l-0 w-full z-10'>
+      <header className='bg-white shadow-sm px-4 h-[var(--header-height)] grid grid-cols-3 items-center md:hidden'>
         <div className='flex gap-4 items-center'>
           <Menu className='text-brand-700' size={30} />
           <Search className='text-brand-700' />

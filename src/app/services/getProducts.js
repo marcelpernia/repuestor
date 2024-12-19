@@ -2,7 +2,7 @@ import qs from 'qs'
 
 export const getProducts = async ({ page }) => {
   const query = qs.stringify({
-    fields: ['title', 'price', 'slug', 'stock'],
+    fields: ['title', 'price', 'slug', 'stock', 'sku'],
     populate: {
       gallery: {
         fields: ['url']

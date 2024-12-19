@@ -29,12 +29,13 @@ export default function RootLayout ({ children }) {
             fontSans.variable
           )}
         >
-
-          <Header />
-          <main className='md:pt-0 pt-[var(--header-height)]'>
-            {children}
-            <Analytics />
-          </main>
+          <div className='min-h-screen grid grid-rows-[auto,1fr]'>
+            <Header />
+            <main className='overflow-y-auto'>
+              {children}
+              <Analytics />
+            </main>
+          </div>
           <Toaster richColors closeButton position='top-right' />
         </body>
       </html>

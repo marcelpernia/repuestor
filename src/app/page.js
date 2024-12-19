@@ -12,6 +12,7 @@ export default async function Home ({ searchParams }) {
   return (
     <>
       <Slider />
+      {/* <pre className='text-xs'>{JSON.stringify(products, null, 2)}</pre> */}
       <div className='py-10 px-4 container mx-auto'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-5'>
           {products.map((product) => (
