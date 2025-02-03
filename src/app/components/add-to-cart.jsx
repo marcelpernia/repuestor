@@ -48,6 +48,7 @@ export const AddToCart = ({ product }) => {
       removeProduct(product.id)
     } else {
       decrementProductQty(product.id)
+      error && setError('')
     }
   }
 

@@ -39,7 +39,9 @@ export const useProductStore = create(
       decrementProductQty: (id) =>
         set((state) => ({
           products: state.products.map((product) =>
-            product.id === id && { ...product, quantity: product.quantity - 1 }
+            product.id === id
+              ? { ...product, quantity: product.quantity - 1 }
+              : product
           )
         })),
 
