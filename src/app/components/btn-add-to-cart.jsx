@@ -8,7 +8,7 @@ import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { STOCK } from '@/lib/constants'
 
-export const AddToCart = ({ product }) => {
+export const BtnAddToCart = ({ product }) => {
   const products = useProductStore(state => state.products)
   const removeProduct = useProductStore(state => state.removeProduct)
   const addProduct = useProductStore(state => state.addProduct)

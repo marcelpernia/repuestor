@@ -1,45 +1,21 @@
 'use client'
 import { useState } from 'react'
 import { useProductStore } from '@/lib/store'
-import { ShoppingCart, Plus, Minus } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { STOCK } from '@/lib/constants'
+import InputEditQty from '@/app/components/input-edit-qty'
 
 export const AddToCart = ({ product }) => {
   const addProduct = useProductStore(state => state.addProduct)
   const isProductInCart = useProductStore(state => state.isProductInCart)
   const incrementByProductQty = useProductStore(state => state.incrementByProductQty)
 
-  const [qtyError, setQtyError] = useState('')
   const [quantity, setQuantity] = useState(1)
 
   const router = useRouter()
-
-  const handleInputChange = (e) => {
-    const quantity = parseInt(e.target.value)
-    if (quantity <= 0) {
-      setQuantity(1)
-      setQtyError('Mínimo 1')
-    } else if (quantity > STOCK) {
-      setQuantity(30)
-      setQtyError(`Máximo ${STOCK}`)
-    } else {
-      setQuantity(quantity)
-      setQtyError('')
-    }
-  }
-
-  const handleIncrement = () => {
-    setQuantity(prev => prev + 1)
-    setQtyError('')
-  }
-  const handleDecrement = () => {
-    setQuantity(prev => prev - 1)
-    setQtyError('')
-  }
 
   const handleAddToCart = () => {
     const prod = {
@@ -70,21 +46,10 @@ export const AddToCart = ({ product }) => {
   return (
     <>
       <div className='flex md:flex-row flex-col gap-2 md:gap-4 md:pt-10 pt-6'>
-        <div className='md:flex-none'>
-          <div className='flex'>
-            <Button disabled={quantity <= 1} onClick={handleDecrement} variant='outline' size='lgIcon' className='flex-none rounded-r-none border-r-0'><Minus className='text-brand-700' /></Button>
-            <Input
-              value={quantity}
-              onChange={handleInputChange}
-              type='number'
-              min={1}
-              max={STOCK}
-              className='h-12 md:w-20 text-lg text-center rounded-none border-brand-200 appearance-none z-10'
-            />
-            <Button disabled={quantity === STOCK} onClick={handleIncrement} variant='outline' size='lgIcon' className='flex-none rounded-l-none border-l-0'><Plus className='text-brand-700' /></Button>
-          </div>
-          {qtyError && <div className='text-red-600 text-xs pt-1 font-semibold'>{qtyError}</div>}
-        </div>
+        <InputEditQty
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
         <Button onClick={handleAddToCart} className='w-full gap-1' size='lg'>
           <ShoppingCart size='24' />
           Agregar al carrito
