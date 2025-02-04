@@ -7,11 +7,11 @@ export const useProductStore = create(
       products: [],
       cart: false,
 
-      addProduct: ({ id, title, image, price, quantity, stock, sku }) =>
+      addProduct: ({ id, title, image, price, quantity, stock, sku, slug }) =>
         set((state) => ({
           products: [
             ...state.products,
-            { id, title, image, price, quantity, stock, sku }
+            { id, title, image, price, quantity, stock, sku, slug }
           ]
         })),
 

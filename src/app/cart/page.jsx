@@ -10,6 +10,8 @@ import {
 } from '@/components/ui/table'
 import { useProductStore } from '@/lib/store'
 import { useShallow } from 'zustand/react/shallow'
+import { BtnAddToCart } from '../components/btn-add-to-cart'
+import Link from 'next/link'
 
 export default function PageCart () {
   const products = useProductStore(useShallow(state => state.products))
@@ -19,7 +21,7 @@ export default function PageCart () {
       <div className='max-w-[800px] mx-auto'>
         <div className='space-y-4'>
           <h1 className='text-2xl font-semibold'>Su Carrito</h1>
-          {/* <pre className='text-xs'>{JSON.stringify(products, null, 2)}</pre> */}
+          <pre><code>{JSON.stringify(products, null, 2)}</code></pre>
           <div className='bg-white shadow-lg p-4 rounded-xl border-gray-100'>
             <Table>
               <TableHeader>
@@ -34,13 +36,15 @@ export default function PageCart () {
                   <TableRow key={product.id} className='hover:bg-transparent'>
                     <TableCell>
                       <div className='flex gap-4 items-center'>
-                        <img
-                          src={product.image}
-                          alt='Producto 1'
-                          className='w-20 h-20 object-contain rounded flex-none'
-                        />
+                        <Link href={`/p/${product.slug}`} className='md:text-base text-sm line-clamp-1 hover:underline' title={product.title}>
+                          <img
+                            src={product.image}
+                            alt='Producto 1'
+                            className='w-20 h-20 object-contain rounded flex-none'
+                          />
+                        </Link>
                         <div className='w-full space-y-1'>
-                          <h3 className='text-balance font-bold leading-none text-base'>Producto 1</h3>
+                          <h3 className='text-balance font-bold leading-none text-base'>{product.title}</h3>
                           <ul className='text-slate-600 text-xs'>
                             <li>Precio: {'$'}{product.price}</li>
                             <li>SKU: {product.sku}</li>
@@ -48,8 +52,8 @@ export default function PageCart () {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell className='w-0 text-center'>
-                      {product.quantity}
+                    <TableCell className='w-[180px] text-center'>
+                      <BtnAddToCart product={{ id: product.id, ...product }} />
                     </TableCell>
                     <TableCell className='font-semibold w-0'>{'$'}{product.price * product.quantity}</TableCell>
                   </TableRow>

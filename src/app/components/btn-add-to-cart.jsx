@@ -87,7 +87,7 @@ export const BtnAddToCart = ({ product }) => {
                     type='text'
                     readOnly
                     onFocus={() => setError('')}
-                    className='text-lg h-9 text-center rounded-none border-brand-200 appearance-none z-10'
+                    className='h-9 text-center rounded-none border-brand-200 appearance-none z-10 p-2'
                   />
                   )
                 : (
@@ -97,7 +97,7 @@ export const BtnAddToCart = ({ product }) => {
                     type='number'
                     min={0}
                     max={STOCK}
-                    className='text-lg h-9 text-center rounded-none border-brand-200 appearance-none z-10'
+                    className='text-lg h-9 text-center rounded-none border-brand-200 appearance-none z-10 p-2'
                   />
                   )}
             </div>
