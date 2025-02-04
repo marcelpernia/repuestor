@@ -111,12 +111,14 @@ export default function Cart () {
               </div>
               )}
         </ScrollArea>
-        <SheetFooter className='flex-none block'>
-          <div className='space-y-4'>
-            <Button asChild variant='outline' className='w-full'><Link onClick={() => setOpen(false)} href='/cart'>Ver carrito</Link></Button>
-            <Button className='w-full'>Tramitar pedido</Button>
-          </div>
-        </SheetFooter>
+        {products.length > 0 && (
+          <SheetFooter className='flex-none block'>
+            <div className='space-y-4'>
+              <Button asChild variant='outline' className='w-full'><Link onClick={() => setOpen(false)} href='/cart'>Ver carrito</Link></Button>
+              <Button className='w-full'>Tramitar pedido</Button>
+            </div>
+          </SheetFooter>
+        )}
       </SheetContent>
     </Sheet>
   )
